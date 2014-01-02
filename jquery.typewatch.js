@@ -25,7 +25,8 @@
 			highlight: true,
 			captureLength: 2,
 			inputTypes: _supportedInputTypes,
-      submitOnEnter: false
+			submitOnEnter: false,
+			submitOnEmpty: false
 		}, o);
 
 		function checkElement(timer, override) {
@@ -33,7 +34,8 @@
 
 			// Fire if text >= options.captureLength AND text != saved text OR if override AND text >= options.captureLength
 			if ((value.length >= options.captureLength && value.toUpperCase() != timer.text)
-				|| (override && value.length >= options.captureLength))
+				|| (override && value.length >= options.captureLength)
+				|| (submitOnEmpty && value.length == 0 && timer.text)) {
 			{
 				timer.text = value.toUpperCase();
 				timer.cb.call(timer.el, value);

@@ -21,13 +21,16 @@ var options = {
     wait: 750,
     highlight: true,
     captureLength: 2,
-    submitOnEnter: true
+    submitOnEnter: false,
+    submitOnEmpty: false
 }
 
 $("#search").typeWatch( options );
 ```
 
 When working with any element other than __TEXTAREA__ pressing the __ENTER__ key will fire the callback function unless the submitOnEnter option is set to false.
+
+If submitOnEmpty is set to true, the callback function will be fired when the element becomes empty (if it previously had a value).
 
 Works with multiple elements:
 
